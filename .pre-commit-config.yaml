@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/Muhannadimad/test1.git
+    rev: v1.0.0
+    hooks:
+      - id: trailing-whitespace
