@@ -1,5 +1,9 @@
 repos:
-  - repo: https://github.com/Muhannadimad/test1.git
-    rev: v1.0.0
+  - repo: local
     hooks:
-      - id: trailing-whitespace
+      - id: black
+        name: Format Python code with Black
+        description: This hook formats Python code using Black.
+        entry: black
+        language: system
+        files: '\.py$'
