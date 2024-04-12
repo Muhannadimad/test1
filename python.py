@@ -6,11 +6,16 @@ import pprint
 import sys
 from datetime import datetime
 
+
+# testtest
+
 # from cryptography import x509
 # from cryptography.hazmat.backends import default_backend
 
 # Configure logging for SSL/TLS debug output
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def perform_handshake(ssl_sock):
@@ -24,7 +29,9 @@ def perform_handshake(ssl_sock):
     else:
         end_time = datetime.now()
         duration = (end_time - start_time).total_seconds() * 1000
-        logging.info(f"SSL/TLS handshake was successfully completed in {duration:.2f} ms")
+        logging.info(
+            f"SSL/TLS handshake was successfully completed in {duration:.2f} ms"
+        )
 
 
 def print_server_details(ssl_sock):
@@ -42,7 +49,16 @@ def print_tls_connection_details(ssl_sock):
 
 def print_server_cert_details(ssl_sock):
     ssl_info = ssl_sock.getpeercert()
-    keys_to_check = ['caIssuers', 'issuer', 'subject', 'notBefore', 'notAfter', 'OCSP', 'crlDistributionPoints', 'serialNumber']
+    keys_to_check = [
+        "caIssuers",
+        "issuer",
+        "subject",
+        "notBefore",
+        "notAfter",
+        "OCSP",
+        "crlDistributionPoints",
+        "serialNumber",
+    ]
 
     for key in keys_to_check:
         try:
@@ -51,7 +67,7 @@ def print_server_cert_details(ssl_sock):
         except KeyError:
             logging.warning(f"{key} not found in the SSL certificate.")
 
-    subject_alt_names = ssl_sock.getpeercert()['subjectAltName']
+    subject_alt_names = ssl_sock.getpeercert()["subjectAltName"]
     if subject_alt_names:
         logging.info("SubjectAltName entries:")
         for i, entry in enumerate(subject_alt_names):
@@ -61,7 +77,13 @@ def print_server_cert_details(ssl_sock):
 def main():
     parser = argparse.ArgumentParser(description="SSL/TLS Debugging Script")
     parser.add_argument("hostname", help="Hostname of the SSL/TLS server")
-    parser.add_argument("--port", type=int, nargs='?', default=443, help="Port number of the SSL/TLS server")
+    parser.add_argument(
+        "--port",
+        type=int,
+        nargs="?",
+        default=443,
+        help="Port number of the SSL/TLS server",
+    )
     args = parser.parse_args()
 
     # Set up a TCP socket
@@ -76,7 +98,7 @@ def main():
 
     # Wrap the socket with SSL/TLS
     context = ssl.create_default_context()
-    context.set_ciphers('ALL')  # Enable all ciphers for detailed logging
+    context.set_ciphers("ALL")  # Enable all ciphers for detailed logging
     ssl_sock = context.wrap_socket(sock, server_hostname=hostname)
 
     # using x509 but not very useful
@@ -105,7 +127,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
