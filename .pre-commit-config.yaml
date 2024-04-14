@@ -7,3 +7,10 @@ repos:
         entry: black
         language: system
         files: '\.py$'
+      - id: conventional-pre-commit
+        entry: conventional-pre-commit
+        name: Conventional Pre-commit Hook
+        description: This hook enforces conventional commit message format.
+        stages: [commit-msg]
+        args: []
+        language: system
