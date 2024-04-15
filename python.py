@@ -77,6 +77,7 @@ def print_server_cert_details(ssl_sock):
 def main():
 
     parser = argparse.ArgumentParser(description="SSL/TLS Debugging Script")
+
     parser.add_argument("hostname", help="Hostname of the SSL/TLS server")
     parser.add_argument(
         "--port",
