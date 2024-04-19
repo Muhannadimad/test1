@@ -7,8 +7,6 @@ import sys
 from datetime import datetime
 
 
-# testtest
-
 # from cryptography import x509
 # from cryptography.hazmat.backends import default_backend
 
