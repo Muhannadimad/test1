@@ -2,7 +2,6 @@ import socket
 import ssl
 import logging
 import argparse
-import pprint
 import sys
 from datetime import datetime
 
