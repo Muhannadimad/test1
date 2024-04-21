@@ -14,6 +14,7 @@ logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
+# new comment
 
 def perform_handshake(ssl_sock):
     # Perform SSL/TLS handshake
