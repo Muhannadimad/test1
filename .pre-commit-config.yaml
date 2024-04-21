@@ -12,5 +12,5 @@ repos:
         name: Conventional Pre-commit Hook
         description: This hook enforces conventional commit message format.
         stages: [commit-msg]
-        args: [--strict, --force-scope, feat, fix, chore, test, custom, refactor, docs, bump]
+        args: [--strict, feat, fix, chore, test, custom, refactor, docs, bump]
         language: system
