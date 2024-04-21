@@ -1,3 +1,21 @@
+## v2.2.0 (2024-04-21)
+
+### Feat
+
+- **git**: pre-commit allow bump type
+
+### Fix
+
+- remove scope restriction
+- **code**: fix pre-commit
+
+### Refactor
+
+- modify muhannad file
+- **code**: modify muhannad file for testing
+- **src**: remove comment
+- **git**: pre-commit config
+
 ## v2.1.0 (2024-04-21)
 
 ### Feat
